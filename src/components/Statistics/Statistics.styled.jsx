@@ -15,3 +15,8 @@ export const Value = styled.span`
     font-weight: 400;
     color: var(--primary-text-color);
 `
+
+export const TotalStats = styled.p`
+    font-weight: 500;
+    color: var(--accent-color);
+`
