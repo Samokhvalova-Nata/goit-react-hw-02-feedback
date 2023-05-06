@@ -6,7 +6,7 @@ export const Statistics = ({good, neutral, bad, total, positivePercentage }) => 
     return (
         <StatisticList>
             <Text>Good: <Value>{good}</Value></Text>
-            <Text>Neutral: <spaValuen>{neutral}</spaValuen></Text>
+            <Text>Neutral: <Value>{neutral}</Value></Text>
             <Text>Bad: <Value>{bad}</Value></Text>
             <TotalStats>Total: <Value>{total}</Value></TotalStats>
             <TotalStats>Positive feedback: <Value>{positivePercentage}%</Value></TotalStats>
