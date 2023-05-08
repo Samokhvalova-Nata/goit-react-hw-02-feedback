@@ -1,23 +1,23 @@
 import styled from '@emotion/styled';
 
-export const Controls = styled.ul`
+export const Controls = styled.div`
         display: flex;
         gap: 20px;
 `;
 
-export const ControlItem = styled.li`
-        margin-top: 15px;
-`
-
 export const Button = styled.button`
-        border: 1px solid transparent;
-        border-radius: 5px;
         min-width: 130px;
         height: 40px;
         padding: 0px;
+        margin-top: 15px;
+
         background-color: var(--accent-color);
+        border: 1px solid transparent;
+        border-radius: 5px;
+
         font-weight: 500;
         font-size: 18px;
+        text-transform: capitalize;
         transition: transform var(--transition), box-shadow var(--transition);
 
         &:hover,

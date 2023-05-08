@@ -4,7 +4,7 @@ import { FeedbackOptions } from "../FeedbackOptions/FeedbackOptions";
 import { Statistics } from "../Statistics/Statistics";
 import { Container } from './App.styled';
 import { Notification } from '../Notification';
-import options from "../../data/options.json";
+// import options from "../../data/options.json";
 
 export class App extends Component {
   state = {
@@ -13,19 +13,10 @@ export class App extends Component {
     bad: 0,
   }
 
-  handleClick = (btnId) => {
-    this.setState(prev => {
-      switch (btnId) {
-        case 'good':
-          return {good: prev.good + 1};
-        case 'neutral':
-          return {neutral: prev.neutral + 1};
-        case 'bad':
-          return {bad: prev.bad + 1};
-        default:
-          return prev;
-      }
-    })
+  handleClick = (name) => {
+      this.setState(prev => {
+        return { [name]: prev[name] + 1 };
+      });
   };
 
   countTotalFeedback() {
@@ -43,11 +34,11 @@ export class App extends Component {
     const { good, neutral, bad } = this.state;
     const total = this.countTotalFeedback();
     const positivePercentage = this.countPositiveFeedbackPercentage(total);
-
+  
     return (
       <Container>
         <Section title="Please leave feedback">
-          <FeedbackOptions options={options} onLeaveFeedback={this.handleClick}/>
+          <FeedbackOptions options={Object.keys(this.state)} onLeaveFeedback={this.handleClick}/>
         </Section>
         <Section title="Statistics">
           {total > 0 ?

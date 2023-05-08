@@ -1,19 +1,18 @@
 import PropTypes from 'prop-types';
-import {Controls, ControlItem, Button} from './FeedbackOptions.styled'
+import {Controls, Button} from './FeedbackOptions.styled'
 
 
 export const FeedbackOptions = ({options, onLeaveFeedback}) => {
     return (
         <Controls>
-            {options.map(({ id, label }) => {
+            {options.map((btn) => {
                 return (
-                    <ControlItem key={id}>
-                        <Button
-                            type="button"
-                            onClick={() => onLeaveFeedback(id)}>
-                            {label}
-                        </Button>
-                    </ControlItem>
+                    <Button
+                        key={btn}
+                        type="button"
+                        onClick={() => onLeaveFeedback(btn)}>
+                        {btn}
+                    </Button>
                 );
             })}
         </Controls>
@@ -21,9 +20,6 @@ export const FeedbackOptions = ({options, onLeaveFeedback}) => {
 };
 
 FeedbackOptions.propTypes = {
-    options: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        label: PropTypes.string.isRequired,
-    })),
+    options: PropTypes.arrayOf(PropTypes.string),
     onLeaveFeedback: PropTypes.func.isRequired,
 }
